@@ -4,8 +4,12 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        viewBinding = true
+    }
+
     namespace = "com.csx4109.assignment"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.csx4109.assignment"
