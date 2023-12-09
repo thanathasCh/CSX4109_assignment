@@ -26,6 +26,7 @@ class ExampleAssignmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
+        // something
         view.btnPlus.setOnClickListener {
             val newValue = view.tvCounter.text.toString().toInt() + 1
             view.tvCounter.text = newValue.toString()
