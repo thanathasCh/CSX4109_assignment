@@ -21,8 +21,31 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  */
 
 class ExampleAssignmentActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityExampleAssignmentBinding
+    private var counter = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_example_assignment)
+        binding = ActivityExampleAssignmentBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Set initial counter value
+        updateCounter()
+
+        // Increment counter when btnPlus is clicked
+        binding.btnPlus.setOnClickListener {
+            counter++
+            updateCounter()
+        }
+
+        // Decrement counter when btnMinus is clicked
+        binding.btnMinus.setOnClickListener {
+            counter--
+            updateCounter()
+        }
+    }
+
+    private fun updateCounter() {
+        binding.tvCounter.text = counter.toString()
     }
 }
