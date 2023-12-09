@@ -5,4 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExampleAssignmentActivity">
+
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="33dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="0"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="119dp"
+        android:layout_height="80dp"
+        android:text="Plus"
+        app:layout_constraintEnd_toStartOf="@id/btnMinus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCounter" />
+
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="121dp"
+        android:layout_height="81dp"
+        android:text="Minus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnPlus"
+        app:layout_constraintTop_toBottomOf="@id/tvCounter" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
