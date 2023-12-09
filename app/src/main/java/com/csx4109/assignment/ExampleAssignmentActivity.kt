@@ -21,6 +21,7 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  */
 
 class ExampleAssignmentActivity : AppCompatActivity() {
+    private val view: ActivityExampleAssignmentBinding by lazy {}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_example_assignment)

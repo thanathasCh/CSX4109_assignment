@@ -1,4 +1,4 @@
-//package com.csx4109.assignment
+package com.csx4109.assignment//package com.csx4109.assignment
 //
 //import androidx.test.core.app.ActivityScenario
 //import androidx.test.espresso.Espresso.onView
