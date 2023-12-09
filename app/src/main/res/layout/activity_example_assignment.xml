@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/tvCounter"
-        android:layout_width="264dp"
+        android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:text="0"
         android:textAlignment="center"
