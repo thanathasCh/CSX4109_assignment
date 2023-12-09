@@ -2,6 +2,10 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.csx4109.assignment.databinding.ActivityAssignment1Binding
+import android.widget.Button
+
+import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
 
 /**
  * Page Name: Basic Calculator
@@ -22,8 +26,10 @@ import android.os.Bundle
  * - When click `btnClear`, value on `tvResult` should return to 0
  */
 class Assignment1Activity : AppCompatActivity() {
+    private val view: ActivityAssignment1Binding by lazy { ActivityAssignment1Binding.inflate(layoutInflater ) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment1)
+        setContentView(view.root)
     }
 }
+
