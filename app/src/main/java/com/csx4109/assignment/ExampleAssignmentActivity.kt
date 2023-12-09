@@ -21,9 +21,21 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  */
 
 class ExampleAssignmentActivity : AppCompatActivity() {
-    private val view: ActivityExampleAssignmentBinding by lazy {}
+    private val view: ActivityExampleAssignmentBinding by lazy {ActivityExampleAssignmentBinding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_example_assignment)
+        setContentView(view.root)
+
+
+
+        view.btnPlus.setOnClickListener {
+            val increase = view.tvCounter.text.toString().toInt() + 1
+            view.tvCounter.text = increase.toString()
+        }
+
+        view.btnMinus.setOnClickListener {
+            val decrease = view.tvCounter.text.toString().toInt() - 1
+            view.tvCounter.text = decrease.toString()
+        }
     }
 }
