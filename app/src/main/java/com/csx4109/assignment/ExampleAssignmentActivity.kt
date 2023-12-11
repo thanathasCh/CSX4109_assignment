@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
 
 /**
+ * add
  * Page Name: Counting Game
  *
  * -- Description --
@@ -18,6 +19,7 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  * - When open an application, the first value in `tvCounter` should be 0
  * - When click `btnPlus`, `tvCounter` should be increased by 1
  * - When click `btnMinus`, `tvCounter` should be decreased by 1
+ *
  */
 
 class ExampleAssignmentActivity : AppCompatActivity() {
