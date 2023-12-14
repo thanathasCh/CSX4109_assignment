@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.csx4109.assignment.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class oMainActivity : AppCompatActivity() {
     private val view: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

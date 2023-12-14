@@ -1,75 +1,44 @@
 package com.csx4109.assignment
 
-import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
-/**
- * Page Name: Basic Calculator
- *
- * -- Description --
- * Create an app can do basic calculation, consists of
- * - textView named `tvResult`
- * - button of number 0-9 named `btn0` - `btn9`
- * - button named `btnPlus`
- * - button named `btnEqual`
- * - button named `btnClear`
- *
- * Cases
- * - When open an application, the first value in `tvResult` should be 0
- * - When type any number button and `btnPlus`, value on `tvResult` should be updated
- *  * - When click `btnEqual`, value on `tvResult` should updated to be the result of your calculation
- * - After click `btnEqual` to calculate the result, you should be able to type more number for further calculation
- * - When click `btnClear`, value on `tvResult` should return to 0
- */
 class Assignment1Activity : AppCompatActivity() {
-    private val view : ActivityAssignment1Binding by lazy {ActivityAssignment1Binding.inflate(layoutInflater)}
+    private val viewBinding: ActivityAssignment1Binding by lazy {ActivityAssignment1Binding.inflate(layoutInflater)}
+    private val listButtons: List<Button> by lazy {
+        listOf(
+            viewBinding.btn0, viewBinding.btn1, viewBinding.btn2, viewBinding.btn3, viewBinding.btn4,
+            viewBinding.btn5, viewBinding.btn6, viewBinding.btn7, viewBinding.btn8, viewBinding.btn9
+        ).filterNotNull()
+    }
+    private var currentResult: Int = 0
+    private var currentNumberPressed: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(view.root)
+        setContentView(viewBinding.root)
 
-        var resultHolder = 0
+        viewBinding.tvResult.text = "0"
 
-        view.btnPlus.setOnClickListener {
-            if (view.btn0.isActivated){
-               resultHolder += 0
-            }
-            else if(view.btn1.isActivated){
-                resultHolder +=1
-            }
-            else if(view.btn2.isActivated){
-                resultHolder += 2
-            }
-            else if (view.btn3.isActivated){
-                resultHolder +=3
-            }
-            else if (view.btn4.isActivated){
-                resultHolder += 4
-            }
-            else if (view.btn5.isActivated){
-                resultHolder += 5
-            }
-            else if (view.btn6.isActivated){
-                resultHolder += 6
-            }
-            else if (view.btn7.isActivated){
-                resultHolder += 7
-            }
-            else if (view.btn8.isActivated){
-                resultHolder += 8
-            }
-            else if (view.btn9.isActivated) {
-                resultHolder += 9
+        listButtons.forEach { button ->
+            button.setOnClickListener {
+                currentNumberPressed += button.text.toString()
             }
         }
-        view.btnClear.setOnClickListener {
-            resultHolder = 0
-            view.tvResult.text = resultHolder.toString()
+
+        viewBinding.btnPlus.setOnClickListener{
+            currentResult += currentNumberPressed.toInt()
         }
 
-        view.btnEqual.setOnClickListener {
-            view.tvResult.text = resultHolder.toString()
+        viewBinding.btnEqual.setOnClickListener {
+            viewBinding.tvResult.text = currentResult.toString()
+        }
+
+        viewBinding.btnClear.setOnClickListener {
+            viewBinding.tvResult.text = "0"
         }
     }
 }
