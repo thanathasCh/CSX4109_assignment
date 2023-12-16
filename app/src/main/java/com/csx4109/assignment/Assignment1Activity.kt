@@ -1,12 +1,16 @@
 package com.csx4109.assignment
 
 import android.os.Bundle
+<<<<<<< Updated upstream
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+=======
+>>>>>>> Stashed changes
 import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 class Assignment1Activity : AppCompatActivity() {
+<<<<<<< Updated upstream
     private val viewBinding: ActivityAssignment1Binding by lazy {ActivityAssignment1Binding.inflate(layoutInflater)}
     private val listButtons: List<Button> by lazy {
         listOf(
@@ -40,5 +44,13 @@ class Assignment1Activity : AppCompatActivity() {
         viewBinding.btnClear.setOnClickListener {
             viewBinding.tvResult.text = "0"
         }
+=======
+    private val view : ActivityAssignment1Binding by lazy { ActivityAssignment1Binding.inflate(layoutInflater)}
+    private val listOfButton : List<Button>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(view.root)
+
+>>>>>>> Stashed changes
     }
 }

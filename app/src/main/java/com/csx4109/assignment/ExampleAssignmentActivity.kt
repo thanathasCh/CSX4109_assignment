@@ -24,6 +24,7 @@ class ExampleAssignmentActivity : AppCompatActivity() {
     private val view by lazy { ActivityExampleAssignmentBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< Updated upstream
         setContentView(view.root)
 
         view.btnPlus.setOnClickListener {
@@ -35,5 +36,10 @@ class ExampleAssignmentActivity : AppCompatActivity() {
             val decrease = view.tvCounter.text.toString().toInt() - 1
             view.tvCounter.text = decrease.toString()
         }
+=======
+        setContentView(R.layout.activity_example_assignment)
+
+
+>>>>>>> Stashed changes
     }
 }
