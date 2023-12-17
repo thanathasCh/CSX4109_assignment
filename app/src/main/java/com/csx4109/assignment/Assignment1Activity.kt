@@ -2,6 +2,7 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
  * Page Name: Basic Calculator
@@ -24,6 +25,5 @@ import android.os.Bundle
 class Assignment1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment1)
     }
 }

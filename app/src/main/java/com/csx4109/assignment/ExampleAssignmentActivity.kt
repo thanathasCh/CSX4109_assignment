@@ -1,6 +1,5 @@
 package com.csx4109.assignment
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
@@ -19,10 +18,20 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  * - When click `btnPlus`, `tvCounter` should be increased by 1
  * - When click `btnMinus`, `tvCounter` should be decreased by 1
  */
-
 class ExampleAssignmentActivity : AppCompatActivity() {
+    private val viewBinding : ActivityExampleAssignmentBinding by lazy { ActivityExampleAssignmentBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_example_assignment)
+        setContentView(viewBinding.root)
+
+        viewBinding.btnPlus.setOnClickListener {
+            val increase = viewBinding.tvCounter.text.toString().toInt() + 1
+            viewBinding.tvCounter.text = increase.toString()
+        }
+
+        viewBinding.btnMinus.setOnClickListener {
+            val decrease = viewBinding.tvCounter.text.toString().toInt() - 1
+            viewBinding.tvCounter.text = decrease.toString()
+        }
     }
 }
