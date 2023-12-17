@@ -164,7 +164,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:layout_marginBottom="109dp"
+<<<<<<< Updated upstream
         android:text="Plus"
+=======
+        android:text="+"
+>>>>>>> Stashed changes
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn0"
