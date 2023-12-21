@@ -20,6 +20,7 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  * - When click `btnMinus`, `tvCounter` should be decreased by 1
  */
 
+
 class ExampleAssignmentActivity : AppCompatActivity() {
     private val view: ActivityExampleAssignmentBinding by lazy { ActivityExampleAssignmentBinding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
