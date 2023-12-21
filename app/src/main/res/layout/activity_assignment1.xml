@@ -108,7 +108,7 @@
                 android:id="@+id/btnEqual"
                 android:layout_width="111dp"
                 android:layout_height="78dp"
-                android:text="==" />
+                android:text="=" />
         </TableRow>
     </TableLayout>
 
