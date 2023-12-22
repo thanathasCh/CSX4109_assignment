@@ -2,6 +2,9 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
  * Page Name: Basic Calculator
@@ -22,8 +25,59 @@ import android.os.Bundle
  * - When click `btnClear`, value on `tvResult` should return to 0
  */
 class Assignment1Activity : AppCompatActivity() {
+    private val view: ActivityAssignment1Binding by lazy { ActivityAssignment1Binding.inflate(layoutInflater) }
+    private var show: String = ""
+    private var result: Int = 0
+    private var operand: String = "0"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment1)
+        setContentView(view.root)
+
+        val btns = listOf<Button>(
+            findViewById(R.id.btn0),
+            findViewById(R.id.btn1),
+            findViewById(R.id.btn2),
+            findViewById(R.id.btn3),
+            findViewById(R.id.btn4),
+            findViewById(R.id.btn5),
+            findViewById(R.id.btn6),
+            findViewById(R.id.btn7),
+            findViewById(R.id.btn8),
+            findViewById(R.id.btn9)
+        )
+
+        view.btnPlus.setOnClickListener {
+            if (operand != ""){
+                result += operand.toInt()
+            }
+            show += "+"
+            view.tvResult.text = show
+            operand = ""
+        }
+
+        for (btn in btns) {
+            btn.setOnClickListener {
+                operand += btn.text
+                show += btn.text
+                view.tvResult.text = show
+            }
+        }
+
+        view.btnEqual.setOnClickListener {
+            if (operand != ""){
+                result += operand.toInt()
+            }
+            show = result.toString()
+            view.tvResult.text = show
+            operand = ""
+        }
+
+        view.btnClear.setOnClickListener {
+            view.tvResult.text = "0"
+            show = ""
+            operand = ""
+            result = 0
+        }
+
     }
 }
