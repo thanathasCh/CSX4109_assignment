@@ -5,4 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExampleAssignmentActivity">
+
+    <!-- Title TextView for the page name -->
+    <TextView
+        android:id="@+id/tvPageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Counting Game"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Subtitle TextView for the counter label -->
+    <TextView
+        android:id="@+id/tvCounterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TV Counter"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvPageTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- TextView for displaying the counter value -->
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/tvCounterLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <!-- Button to increase the counter -->
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plus"
+        app:layout_constraintTop_toBottomOf="@id/tvCounter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Button to decrease the counter -->
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minus"
+        app:layout_constraintTop_toBottomOf="@id/btnPlus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
