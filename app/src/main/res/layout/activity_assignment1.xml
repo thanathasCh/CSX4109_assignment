@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Assignment1Activity">
+    tools:context=".Assignment1Activity"><![CDATA[
+
+
+
+    />
+
+
+
+
+
+
+
+
+    ]]>
 
     <TextView
         android:id="@+id/tvResult"
@@ -12,7 +25,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="165dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="360dp"
         android:text="0"
         android:textAlignment="viewEnd"
         android:textSize="48sp"
@@ -25,104 +38,144 @@
         android:id="@+id/btn7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="7"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="386dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="9"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="384dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="191dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="276dp"
         android:text="0"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="576dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
         android:text="4"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="448dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btnEqual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="192dp"
         android:text="="
-        tools:layout_editor_absoluteX="239dp"
-        tools:layout_editor_absoluteY="574dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
         android:text="2"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="508dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="268dp"
         android:text="Clear"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="575dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
         android:text="1"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="513dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
         android:text="6"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
         android:text="5"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="444dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
         android:text="3"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="506dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/btn8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="8"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="384dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <Button
         android:id="@+id/buttonPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="91dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="84dp"
         android:text="+"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="638dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tvResult"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn6"
+        app:layout_constraintStart_toStartOf="@+id/tvResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
