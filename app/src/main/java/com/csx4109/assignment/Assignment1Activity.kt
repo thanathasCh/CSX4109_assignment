@@ -1,9 +1,6 @@
 package com.csx4109.assignment
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
@@ -25,88 +22,73 @@ import com.csx4109.assignment.databinding.ActivityAssignment1Binding
  * - When click `btnClear`, value on `tvResult` should return to 0
  */
 class Assignment1Activity : AppCompatActivity() {
-    private val view: ActivityAssignment1Binding by lazy {
-        ActivityAssignment1Binding.inflate(layoutInflater)
-    }
-
-    private var currentValue = 0
-    private var previousValue = 0
-    private var isPlusClicked = false
-
+    private val view: ActivityAssignment1Binding by lazy{ ActivityAssignment1Binding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_assignment1)
         setContentView(view.root)
 
-        updateResultText()
+        var ExpressionDisplay = ""
 
-        val numberButtonIds = listOf(
-            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
-            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
-        )
-
-        for (buttonId in numberButtonIds) {
-            view.root.findViewById<View>(buttonId).setOnClickListener {
-                onNumberButtonClick(buttonId)
-            }
+        view.btn1.setOnClickListener {
+            ExpressionDisplay += "1"
+            view.tvResult.text = ExpressionDisplay
         }
-
+        view.btn2.setOnClickListener {
+            ExpressionDisplay += "2"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn3.setOnClickListener {
+            ExpressionDisplay += "3"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn4.setOnClickListener {
+            ExpressionDisplay += "4"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn5.setOnClickListener {
+            ExpressionDisplay += "5"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn6.setOnClickListener {
+            ExpressionDisplay += "6"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn7.setOnClickListener {
+            ExpressionDisplay += "7"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn8.setOnClickListener {
+            ExpressionDisplay += "8"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn9.setOnClickListener {
+            ExpressionDisplay += "9"
+            view.tvResult.text = ExpressionDisplay
+        }
+        view.btn0.setOnClickListener {
+            ExpressionDisplay += "0"
+            view.tvResult.text = ExpressionDisplay
+        }
         view.btnPlus.setOnClickListener {
-            onPlusButtonClick()
+            ExpressionDisplay += "+"
+            view.tvResult.text = ExpressionDisplay
         }
-
         view.btnEqual.setOnClickListener {
-            onEqualButtonClick()
+            val nEqual = view.tvResult.text.toString()
+            val numberArr = nEqual.split("+")
+            var total = 0;
+            for (i in numberArr) {
+                total += i.toInt()
+            }
+            ExpressionDisplay = total.toString()
+            view.tvResult.text = ExpressionDisplay
         }
-
         view.btnClear.setOnClickListener {
-            onClearButtonClick()
+            val totalNum = view.tvResult.text.toString().toInt()
+            val clearNum = totalNum * 0
+            ExpressionDisplay = ""
+            view.tvResult.text = clearNum.toString()
         }
     }
-
-    private fun onNumberButtonClick(buttonId: Int) {
-        val clickedNumber = view.root.findViewById<Button>(buttonId).text.toString().toInt()
-        if (isPlusClicked) {
-            previousValue += currentValue
-            currentValue = clickedNumber
-            isPlusClicked = false
-        } else {
-            currentValue = currentValue * 10 + clickedNumber
-        }
-        updateResultText()
-    }
-
-    private fun onPlusButtonClick() {
-        isPlusClicked = true
-        updateResultText()
-    }
-
-    private fun onEqualButtonClick() {
-        if (isPlusClicked) {
-            previousValue += currentValue
-            isPlusClicked = false
-            currentValue = previousValue // Update currentValue with the sum
-        } else {
-            // Handle equal button press without plus
-            currentValue += previousValue
-        }
-        updateResultText()
-        previousValue = 0 // Reset previous value after display update
-    }
-
-    private fun onClearButtonClick() {
-        currentValue = 0
-        previousValue = 0
-        isPlusClicked = false
-        updateResultText()
-    }
-
-    private fun updateResultText() {
-        val resultText = if (isPlusClicked) {
-            "$currentValue + "
-        } else {
-            currentValue.toString()
-        }
-        view.tvResult.text = resultText
-    }
-
 }
