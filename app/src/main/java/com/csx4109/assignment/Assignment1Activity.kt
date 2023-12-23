@@ -2,6 +2,8 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
  * Page Name: Basic Calculator
@@ -36,7 +38,7 @@ class Assignment1Activity : AppCompatActivity() {
         // Set onClickListeners for number buttons
         val numberButtons = listOf<Button>(
             view.btn0, view.btn1, view.btn2, view.btn3, view.btn4,
-            view.btn5, view.btn6, view.btn7, view.tbn8, view.btn9
+            view.btn5, view.btn6, view.btn7, view.btn8, view.btn9
         )
 
         for (button in numberButtons) {
