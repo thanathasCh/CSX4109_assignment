@@ -26,16 +26,16 @@ class ExampleAssignmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_example_assignment)
+        setContentView(view.root)
 
         view.btnPlus.setOnClickListener {
-          val newView = view.tvCounter.text.toString().toInt() + 1
-          view.tvCounter.text = newView.toString()
+            val newView = view.tvCounter.text.toString().toInt() + 1
+            view.tvCounter.text = newView.toString()
         }
 
         view.btnMinus.setOnClickListener {
-           val newValue = view.tvCounter.text.toString().toInt() - 1
-            view.tvCounter.text = newValue.toString()
+            val newView = view.tvCounter.text.toString().toInt() - 1
+            view.tvCounter.text = newView.toString()
         }
-
     }
 }
