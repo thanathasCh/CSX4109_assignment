@@ -5,4 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExampleAssignmentActivity">
+
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.431" />
+
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="minus"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCounter"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCounter"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
+
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="plus"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCounter"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCounter"
+        app:layout_constraintTop_toBottomOf="@+id/tvCounter" />
 </androidx.constraintlayout.widget.ConstraintLayout>
