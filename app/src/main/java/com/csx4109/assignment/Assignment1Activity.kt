@@ -2,6 +2,9 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
  * Page Name: Basic Calculator
@@ -22,8 +25,59 @@ import android.os.Bundle
  * - When click `btnClear`, value on `tvResult` should return to 0
  */
 class Assignment1Activity : AppCompatActivity() {
+    private val view: ActivityAssignment1Binding by lazy { ActivityAssignment1Binding.inflate(layoutInflater) }
+    private lateinit var tvResult: TextView
+    private var currentNumber = 0
+    private var savedNumber = 0
+    private var isPlusClicked = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment1)
+        setContentView(view.root)
+
+        tvResult = findViewById(R.id.tvResult)
+
+        setNumberButtonClickListeners()
+
+        findViewById<Button>(R.id.btnPlus).setOnClickListener {
+            isPlusClicked = true
+            savedNumber = currentNumber
+            currentNumber = 0
+            updateResult()
+        }
+
+        findViewById<Button>(R.id.btnEqual).setOnClickListener {
+            if (isPlusClicked) {
+                currentNumber += savedNumber
+                isPlusClicked = false
+            }
+            updateResult()
+        }
+
+        findViewById<Button>(R.id.btnClear).setOnClickListener {
+            currentNumber = 0
+            savedNumber = 0
+            isPlusClicked = false
+            updateResult()
+        }
+    }
+
+    private fun setNumberButtonClickListeners() {
+        val numberButtonIds = listOf(
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
+        )
+
+        for (buttonId in numberButtonIds) {
+            findViewById<Button>(buttonId).setOnClickListener {
+                val number = Integer.parseInt((it as Button).text.toString())
+                currentNumber = currentNumber*10 + number
+                updateResult()
+            }
+        }
+    }
+
+    private fun updateResult() {
+        tvResult.text = currentNumber.toString()
     }
 }
