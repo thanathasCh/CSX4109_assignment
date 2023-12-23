@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, Assignment1Activity::class.java))
         }
 
-        view.btnAssignment2.setOnClickListener {?
+        view.btnAssignment2.setOnClickListener {
             startActivity(Intent(this, Assignment2Activity::class.java))
         }
 
