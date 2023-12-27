@@ -1,6 +1,5 @@
 package com.csx4109.assignment
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
@@ -21,8 +20,23 @@ import com.csx4109.assignment.databinding.ActivityExampleAssignmentBinding
  */
 
 class ExampleAssignmentActivity : AppCompatActivity() {
+    private val view: ActivityExampleAssignmentBinding by lazy { ActivityExampleAssignmentBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_example_assignment)
+        setContentView(view.root)
+
+        view.btnPlus.setOnClickListener {
+            val newValue = view.tvCounter.text.toString().toInt() + 1
+            view.tvCounter.text = newValue.toString()
+        }
+
+        view.btnMinus.setOnClickListener {
+            val newValue = view.tvCounter.text.toString().toInt() - 1
+            view.tvCounter.text = newValue.toString()
+        }
+
+        view.btnReset.setOnClickListener {
+            view.tvCounter.text = "0"
+        }
     }
 }
