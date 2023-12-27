@@ -26,11 +26,11 @@ class ExampleAssignmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
-        view.plusbutton.setOnClickListener{
+        view.btnPlus.setOnClickListener{
             val newView = view.tvCounter.text.toString().toInt()+1
             view.tvCounter.text=newView.toString()
         }
-        view.minusbutton.setOnClickListener{
+        view.btnMinus.setOnClickListener{
             val newView = view.tvCounter.text.toString().toInt()-1
             view.tvCounter.text=newView.toString()
         }
