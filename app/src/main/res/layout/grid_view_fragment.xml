@@ -3,26 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Assignment2Activity">
+    android:layout_height="175dp">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
+    <TextView
+        android:id="@+id/tvGameScore"
+        android:layout_width="116dp"
+        android:layout_height="134dp"
+        android:text="10"
+        android:textAlignment="center"
+        android:textSize="95sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/buttom_nav_menu" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.512" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcExample"
-        android:name="com.csx4109.assignment.fragments.ListFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bnv"
+    <ImageView
+        android:id="@+id/ivGame"
+        android:layout_width="93dp"
+        android:layout_height="168dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
