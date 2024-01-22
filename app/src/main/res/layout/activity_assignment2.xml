@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".Assignment2Activity">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="409dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation_menu" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fmGameList"
+        android:name="com.csx4109.assignment.fragment.ListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="298dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
