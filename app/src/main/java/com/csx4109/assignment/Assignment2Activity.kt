@@ -43,8 +43,40 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityAssignment2Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        binding = ActivityAssignment2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setupBottomNavigation()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ListFragment())
+                .commit()
+        }
+    }
+
+    private fun setupBottomNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.item_list -> {
+                    loadFragment(ListFragment())
+                    true
+                }
+                R.id.item_grid -> {
+                    loadFragment(GridFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }
