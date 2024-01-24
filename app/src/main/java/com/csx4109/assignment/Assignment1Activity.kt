@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
- * Page Name: Basic Calculator
+ * Page Name: Basic Calculator 1
  *
  * -- Description --
  * Create an app can do basic calculation, consists of
