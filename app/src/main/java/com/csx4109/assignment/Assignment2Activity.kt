@@ -4,8 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.csx4109.assignment.databinding.ActivityAssignment2Binding
-import com.csx4109.assignment.fragments.GridFragment
-import com.csx4109.assignment.fragments.ListFragment
+import com.csx4109.assignment.databinding.FragmentABinding
+import com.csx4109.assignment.fragments.FragmentA
+import com.csx4109.assignment.fragments.FragmentB
 
 /**
  * Page Name: Game List
@@ -20,7 +21,7 @@ import com.csx4109.assignment.fragments.ListFragment
  * - menuItem with id `item_list` which should show the first fragment
  * - menuItem with id `item_grid` which should show the second fragment
  *
- * For the first fragment, you should use LinearLayout to show the list of games
+ * For the first fragment, you should use LinearLayout to show the list of game s
  * - The recyclerView should have id of `rvList`
  * Each item should show the following information with the following id
  * - imageView named `ivGame` that load image from internet using coil library
@@ -43,8 +44,30 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+    private val view: ActivityAssignment2Binding by lazy { ActivityAssignment2Binding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        setContentView(view.root)
+        changeFragment(FragmentA())
+
+        view.btnNav.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.item_list -> changeFragment(FragmentA())
+                R.id.item_grid -> changeFragment(FragmentB())
+                else -> false
+            }
+        }
+    }
+    private fun changeFragment(fragment: Fragment): Boolean {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fcNavigation, fragment)
+            .addToBackStack(fragment::class.java.name)
+            .commit()
+
+        return true
     }
 }
+
+
+
