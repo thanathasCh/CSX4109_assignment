@@ -3,9 +3,10 @@ package com.csx4109.assignment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.csx4109.adapters.fragments.Fragment1
+import com.csx4109.adapters.fragments.Fragment2
 import com.csx4109.assignment.databinding.ActivityAssignment2Binding
-import com.csx4109.assignment.fragments.GridFragment
-import com.csx4109.assignment.fragments.ListFragment
+
 
 /**
  * Page Name: Game List
@@ -43,8 +44,27 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+    private val view: ActivityAssignment2Binding by lazy { ActivityAssignment2Binding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        setContentView(view.root)
+        changeFragment(Fragment1())
+
+        view.btnNav.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.item_list -> changeFragment(Fragment1())
+                R.id.item_grid -> changeFragment(Fragment2())
+                else -> false
+            }
+        }
+    }
+    private fun changeFragment(fragment: Fragment): Boolean {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fcNavigation, fragment)
+            .addToBackStack(fragment::class.java.name)
+            .commit()
+
+        return true
     }
 }
