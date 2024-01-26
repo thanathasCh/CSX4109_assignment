@@ -2,10 +2,18 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.csx4109.assignment.adapters.GridAdapter
+import com.csx4109.assignment.adapters.ListAdapter
 import com.csx4109.assignment.databinding.ActivityAssignment2Binding
+import com.csx4109.assignment.databinding.ActivityGridFragmentBinding
+import com.csx4109.assignment.databinding.ActivityListFragmentBinding
 import com.csx4109.assignment.fragments.GridFragment
 import com.csx4109.assignment.fragments.ListFragment
+import com.csx4109.assignment.models.Game
 
 /**
  * Page Name: Game List
@@ -43,8 +51,36 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+    private val view: ActivityAssignment2Binding by lazy { ActivityAssignment2Binding.inflate(layoutInflater) }
+    private val listview: ActivityListFragmentBinding by lazy { ActivityListFragmentBinding.inflate(layoutInflater) }
+    private val gridview: ActivityGridFragmentBinding by lazy { ActivityGridFragmentBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        setContentView(view.root)
+
+        view.btn.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.item_list -> changeFragment(ListFragment())
+                R.id.item_grid -> changeFragment(GridFragment())
+                else -> false
+            }
+        }
+
+        if (savedInstanceState == null) {
+            changeFragment(ListFragment())
+        }
+
+    }
+
+
+    private fun changeFragment(fragment: Fragment): Boolean {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fcNavigation, fragment)
+            .addToBackStack(fragment::class.java.name)
+            .commit()
+
+        return true
+
     }
 }
