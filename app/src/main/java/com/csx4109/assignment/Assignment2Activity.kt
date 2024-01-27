@@ -3,10 +3,10 @@ package com.csx4109.assignment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.csx4109.assignment.adapters.fragments.Fragment1
+import com.csx4109.assignment.adapters.fragments.Fragment2
 
 import com.csx4109.assignment.databinding.ActivityAssignment2Binding
-import com.csx4109.assignment.adapters.Fragment1
-import com.csx4109.assignment.adapters.Fragment2
 import com.csx4109.assignment.models.Game
 
 /**
@@ -52,7 +52,9 @@ object LocalVariable {
         )
 }
 class Assignment2Activity : AppCompatActivity() {
-    private val view: ActivityAssignment2Binding by lazy { ActivityAssignment2Binding.inflate(layoutInflater) }
+    private val view: ActivityAssignment2Binding by lazy {
+        ActivityAssignment2Binding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_assignment2)

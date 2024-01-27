@@ -1,4 +1,4 @@
-package com.csx4109.assignment.adapters
+package com.csx4109.assignment.adapters.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
