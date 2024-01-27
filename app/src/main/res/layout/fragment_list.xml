@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.gridlayout.widget.GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvGrid"
+            android:id="@+id/rvList"
+            android:name="com.example.DefaultFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.gridlayout.widget.GridLayout>
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
