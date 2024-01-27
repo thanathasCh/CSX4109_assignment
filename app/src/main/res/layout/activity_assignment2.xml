@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".Assignment2Activity">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btnNavi"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nev_menu" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bnvFrag"
+        android:name="com.csx4109.assignment.Fragments.FragmentList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
