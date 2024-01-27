@@ -7,8 +7,8 @@ import coil.load
 import com.csx4109.assignment.databinding.GameListItemBinding
 import com.csx4109.assignment.models.Game
 
-class GameListAdapter(private val games: List<Game>) :
-    RecyclerView.Adapter<GameListAdapter.GameListViewHolder>() {
+class ListAdapter(private val games: List<Game>) :
+    RecyclerView.Adapter<ListAdapter.GameListViewHolder>() {
     class GameListViewHolder(val view: GameListItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameListViewHolder {

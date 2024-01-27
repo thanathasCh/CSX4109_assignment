@@ -9,8 +9,8 @@ import coil.load
 import com.csx4109.assignment.databinding.GameGridItemBinding
 import com.csx4109.assignment.models.Game
 
-class GameGridAdapter(private val context: Context, private val games: List<Game>) :
-    RecyclerView.Adapter<GameGridAdapter.GameGridViewHolder>() {
+class GridAdapter(private val context: Context, private val games: List<Game>) :
+    RecyclerView.Adapter<GridAdapter.GameGridViewHolder>() {
     class GameGridViewHolder(val view: GameGridItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameGridViewHolder {

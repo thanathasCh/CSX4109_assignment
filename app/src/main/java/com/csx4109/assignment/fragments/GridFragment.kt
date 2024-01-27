@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.csx4109.assignment.LocalVariables
-import com.csx4109.assignment.adapter.GameGridAdapter
-import com.csx4109.assignment.adapter.GameListAdapter
+import com.csx4109.assignment.adapter.GridAdapter
 import com.csx4109.assignment.databinding.FragmentGridBinding
 
 class GridFragment : Fragment() {
@@ -21,7 +20,7 @@ class GridFragment : Fragment() {
     ): View {
         view = FragmentGridBinding.inflate(inflater, container, false)
 
-        view.rvGrid.adapter = GameGridAdapter(requireContext(), LocalVariables.games)
+        view.rvGrid.adapter = GridAdapter(requireContext(), LocalVariables.games)
         view.rvGrid.layoutManager = GridLayoutManager(context, 2)
 
         return view.root

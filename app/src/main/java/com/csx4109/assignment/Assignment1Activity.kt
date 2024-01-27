@@ -4,72 +4,63 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
-/**
- * Page Name: Basic Calculator
- *
- * -- Description --
- * Create an app can do basic calculation, consists of
- * - textView named `tvResult`
- * - button of number 0-9 named `btn0` - `btn9`
- * - button named `btnPlus`
- * - button named `btnEqual`
- * - button named `btnClear`
- *
- * Cases
- * - When open an application, the first value in `tvResult` should be 0
- * - When type any number button and `btnPlus`, value on `tvResult` should be updated
- * - When click `btnEqual`, value on `tvResult` should updated to be the result of your calculation
- * - After click `btnEqual` to calculate the result, you should be able to type more number for further calculation
- * - When click `btnClear`, value on `tvResult` should return to 0
- */
 class Assignment1Activity : AppCompatActivity() {
-    private val view: ActivityAssignment1Binding by lazy {
-        ActivityAssignment1Binding.inflate(
-            layoutInflater
-        )
-    }
+    // Lazy initialization of the binding object
+    private val view: ActivityAssignment1Binding by lazy { ActivityAssignment1Binding.inflate(layoutInflater) }
+    private var currentNumber = ""
+    private var previousNumber = 0
+    private var operation = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
+        view.tvResult.text = "0"
 
-        val buttons = listOf(
-            view.btn0,
-            view.btn1,
-            view.btn2,
-            view.btn3,
-            view.btn4,
-            view.btn5,
-            view.btn6,
-            view.btn7,
-            view.btn8,
-            view.btn9
+        setNumberButtonListeners()
+        setOperationButtonListeners()
+        setEqualButtonListener()
+        setClearButtonListener()
+    }
+
+    private fun setNumberButtonListeners() {
+        val buttonIds = listOf(
+            view.btn0, view.btn1, view.btn2, view.btn3, view.btn4,
+            view.btn5, view.btn6, view.btn7, view.btn8, view.btn9
         )
 
-        buttons.forEachIndexed { index, button ->
-            button.setOnClickListener {
-                val oldText =
-                    if (view.tvResult.text.toString() == "0") "" else view.tvResult.text.toString()
-                val text = oldText + index.toString()
-                view.tvResult.text = text
+        buttonIds.forEach { button ->
+            button.setOnClickListener { _ ->
+                currentNumber += button.text.toString()
+                view.tvResult.text = currentNumber
             }
         }
+    }
 
-        view.btnPlus.setOnClickListener {
-            val text = view.tvResult.text.toString() + "+"
-            view.tvResult.text = text
+    private fun setOperationButtonListeners() {
+        view.buttonPlus.setOnClickListener {
+            operation = "+"
+            previousNumber = currentNumber.toInt()
+            currentNumber = ""
         }
+    }
 
+    private fun setEqualButtonListener() {
         view.btnEqual.setOnClickListener {
-            val text = view.tvResult.text.toString()
-            val result = text
-                .split("+")
-                .filter { it.isNotBlank() }
-                .sumOf { it.toInt() }
-            view.tvResult.text = result.toString()
+            if (operation == "+") {
+                val result = previousNumber + currentNumber.toInt()
+                view.tvResult.text = result.toString()
+                // Reset for the next calculation
+                currentNumber = result.toString()
+                previousNumber = 0
+            }
         }
+    }
 
+    private fun setClearButtonListener() {
         view.btnClear.setOnClickListener {
+            currentNumber = ""
+            previousNumber = 0
+            operation = ""
             view.tvResult.text = "0"
         }
     }
