@@ -3,9 +3,9 @@ package com.csx4109.assignment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.csx4109.assignment.Adapters.LinearLayout
 import com.csx4109.assignment.databinding.ActivityAssignment2Binding
-import com.csx4109.assignment.fragments.GridFragment
-import com.csx4109.assignment.fragments.ListFragment
+import com.csx4109.assignment.models.Game
 
 /**
  * Page Name: Game List
@@ -43,8 +43,13 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+
+    private val viewBinding: ActivityAssignment2Binding by lazy { ActivityAssignment2Binding.inflate(layoutInflater)}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        setContentView(viewBinding.root)
+
+        viewBinding.lvGameBoard.adapter = LinearLayout(this, LocalVariables.games)
     }
 }
