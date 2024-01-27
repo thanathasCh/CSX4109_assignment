@@ -12,11 +12,11 @@ import com.csx4109.assignment.fragments.ListFragment
  *
  * -- Description --
  * Create an app that can show a list of games from `LocalVariable.games`
- * There should be 2 fragments for each navigation buttom
+ * There should be 2 fragments for each navigation button
  * - RecyclerView - LinearLayout
  * - RecyclerView - GridLayout
  *
- * NavigationButtom menu should have 2 items
+ * NavigationButton menu should have 2 items
  * - menuItem with id `item_list` which should show the first fragment
  * - menuItem with id `item_grid` which should show the second fragment
  *
@@ -43,8 +43,33 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+
+    private val binding by lazy {
+        ActivityAssignment2Binding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        setContentView(binding.root)
+
+        if (savedInstanceState == null) {
+            changeFragment(ListFragment())
+        }
+
+        binding.bnv.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.item_list -> changeFragment(ListFragment())
+                R.id.item_grid -> changeFragment(GridFragment())
+                else -> false
+            }
+        }
+    }
+
+    private fun changeFragment(fragment: Fragment): Boolean {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragView, fragment)
+            .commit()
+        return true
     }
 }
