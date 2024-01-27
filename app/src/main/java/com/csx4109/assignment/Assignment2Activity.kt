@@ -43,8 +43,35 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+    private val view: ActivityAssignment2Binding by lazy {
+        ActivityAssignment2Binding.inflate(
+            layoutInflater
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        setContentView(view.root)
+
+        view.bnMenu.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.item_list -> {
+                    showFragment(ListFragment())
+                    true
+                }
+                R.id.item_grid -> {
+                    showFragment(GridFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun showFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fcView, fragment)
+            .commit()
     }
 }
