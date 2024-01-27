@@ -22,6 +22,8 @@ import com.csx4109.assignment.databinding.ActivityAssignment1Binding
  * - After click `btnEqual` to calculate the result, you should be able to type more number for further calculation
  * - When click `btnClear`, value on `tvResult` should return to 0
  */
+
+/* 6411271 - Submission */
 class Assignment1Activity : AppCompatActivity() {
     private val view: ActivityAssignment1Binding by lazy {
         ActivityAssignment1Binding.inflate(
