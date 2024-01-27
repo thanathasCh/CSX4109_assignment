@@ -1,0 +1,13 @@
+# Idea project files
+.idea
+.bsp
+*.iml
+
+# OS specifc files
+.DS_Store
+
+# Gradle files
+.gradle
+build
+
+local.properties

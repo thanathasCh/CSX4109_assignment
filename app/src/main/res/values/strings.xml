@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">assignment</string>
+    <string name="android_assignments">Android Assignments</string>
+    <string name="assignment_1">Assignment 1</string>
+    <string name="assignment_2">Assignment 2</string>
+    <string name="assignment_3">Assignment 3</string>
+    <string name="example_assignment_0">(Example) Assignment 0</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
