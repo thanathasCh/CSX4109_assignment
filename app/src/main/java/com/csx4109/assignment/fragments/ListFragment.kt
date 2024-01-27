@@ -7,22 +7,34 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.csx4109.assignment.LocalVariables
-import com.csx4109.assignment.adapter.GameListAdapter
+import com.csx4109.assignment.adapter.ListAdapter
 import com.csx4109.assignment.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
-    private lateinit var view: FragmentListBinding
+    private var _binding: FragmentListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        view = FragmentListBinding.inflate(inflater, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        view.rvList.adapter = GameListAdapter(LocalVariables.games)
-        view.rvList.layoutManager = LinearLayoutManager(context)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+    }
 
-        return view.root
+    private fun setupRecyclerView() {
+        with(binding.rvList) {
+            adapter = ListAdapter(LocalVariables.games)
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Avoid leaking views
     }
 }

@@ -5,4 +5,9 @@
     <string name="assignment_2">Assignment 2</string>
     <string name="assignment_3">Assignment 3</string>
     <string name="example_assignment_0">(Example) Assignment 0</string>
+    <string name="game_name">Game Name</string>
+    <string name="game_genre">Game Genre</string>
+    <string name="game_score">Game Score</string>
+    <string name="game_description">Game Description</string>
+    <string name="image_description">Image Description</string>
 </resources>
