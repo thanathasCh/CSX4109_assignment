@@ -1,7 +1,7 @@
 package com.csx4109.assignment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.csx4109.assignment.databinding.ActivityAssignment2Binding
 import com.csx4109.assignment.fragments.GridFragment
@@ -9,7 +9,7 @@ import com.csx4109.assignment.fragments.ListFragment
 
 /**
  * Page Name: Game List
- *
+ *models
  * -- Description --
  * Create an app that can show a list of games from `LocalVariable.games`
  * There should be 2 fragments for each navigation buttom
@@ -43,8 +43,39 @@ import com.csx4109.assignment.fragments.ListFragment
  * ***You can check video example in MS team***
  */
 class Assignment2Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityAssignment2Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        binding = ActivityAssignment2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setupNavigation()
+        if (savedInstanceState == null) {
+            changeFragment(ListFragment())
+        }
+    }
+
+    private fun setupNavigation() {
+        binding.btnNavigation.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.item_list -> {
+                    changeFragment(ListFragment())
+                    true
+                }
+                R.id.item_grid -> {
+                    changeFragment(GridFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun changeFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fcNavigation, fragment)
+            .addToBackStack(fragment::class.java.name)
+            .commit()
     }
 }
