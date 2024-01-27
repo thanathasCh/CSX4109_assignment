@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/android_assignments"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/btnAssignment0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/example_assignment_0"
+        app:layout_constraintEnd_toEndOf="@+id/tvAppName"
+        app:layout_constraintStart_toStartOf="@+id/tvAppName"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+    <Button
+        android:id="@+id/btnAssignment1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/assignment_1"
+        app:layout_constraintEnd_toEndOf="@+id/btnAssignment0"
+        app:layout_constraintStart_toStartOf="@+id/btnAssignment0"
+        app:layout_constraintTop_toBottomOf="@+id/btnAssignment0" />
+
+    <Button
+        android:id="@+id/btnAssignment2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/assignment_2"
+        app:layout_constraintEnd_toEndOf="@+id/tvAppName"
+        app:layout_constraintStart_toStartOf="@+id/btnAssignment1"
+        app:layout_constraintTop_toBottomOf="@+id/btnAssignment1" />
+
+    <Button
+        android:id="@+id/btnAssignment_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/assignment_3"
+        app:layout_constraintEnd_toEndOf="@+id/btnAssignment2"
+        app:layout_constraintStart_toStartOf="@+id/btnAssignment2"
+        app:layout_constraintTop_toBottomOf="@+id/btnAssignment2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
