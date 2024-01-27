@@ -31,6 +31,7 @@ class Assignment1Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(view.root)
 
         val buttons = listOf(
