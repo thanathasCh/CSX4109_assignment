@@ -21,7 +21,7 @@ import org.junit.runner.RunWith
 class Assignment2InstrumentedTest {
     private lateinit var scenario: ActivityScenario<Assignment2Activity>
 
-    
+
     @Before
     fun setup() {
         scenario = ActivityScenario.launch(Assignment2Activity::class.java)
