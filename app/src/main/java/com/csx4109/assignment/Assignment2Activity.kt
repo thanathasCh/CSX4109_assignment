@@ -42,9 +42,39 @@ import com.csx4109.assignment.fragments.ListFragment
  *
  * ***You can check video example in MS team***
  */
+
+
 class Assignment2Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityAssignment2Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
+        binding = ActivityAssignment2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Show the default ListFragment initially
+        showFragment(ListFragment())
+
+        // Set up bottom navigation
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.item_list -> {
+                    showFragment(ListFragment())
+                    true
+                }
+                R.id.item_grid -> {
+                    showFragment(GridFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun showFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }
+
