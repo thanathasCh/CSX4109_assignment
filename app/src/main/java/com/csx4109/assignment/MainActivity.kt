@@ -7,7 +7,6 @@ import com.csx4109.assignment.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val view: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
