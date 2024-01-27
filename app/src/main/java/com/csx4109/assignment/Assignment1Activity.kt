@@ -1,8 +1,3 @@
-package com.csx4109.assignment
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.csx4109.assignment.databinding.ActivityAssignment1Binding
 
 /**
  * Page Name: Basic Calculator
@@ -22,55 +17,74 @@ import com.csx4109.assignment.databinding.ActivityAssignment1Binding
  * - After click `btnEqual` to calculate the result, you should be able to type more number for further calculation
  * - When click `btnClear`, value on `tvResult` should return to 0
  */
+
+package com.csx4109.assignment
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.csx4109.assignment.databinding.ActivityAssignment1Binding
+
 class Assignment1Activity : AppCompatActivity() {
-    private val view: ActivityAssignment1Binding by lazy {
-        ActivityAssignment1Binding.inflate(
-            layoutInflater
-        )
-    }
+    private val view: ActivityAssignment1Binding by lazy { ActivityAssignment1Binding.inflate(layoutInflater) }
+
+    private var currentExpression: String = ""
+    private var result: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
-        val buttons = listOf(
-            view.btn0,
-            view.btn1,
-            view.btn2,
-            view.btn3,
-            view.btn4,
-            view.btn5,
-            view.btn6,
-            view.btn7,
-            view.btn8,
-            view.btn9
-        )
+        // Initial display
+        view.tvResult.text = "0"
 
-        buttons.forEachIndexed { index, button ->
-            button.setOnClickListener {
-                val oldText =
-                    if (view.tvResult.text.toString() == "0") "" else view.tvResult.text.toString()
-                val text = oldText + index.toString()
-                view.tvResult.text = text
+        // Number button clicks
+        view.apply {
+            btn0.setOnClickListener { appendToExpression("0") }
+            btn1.setOnClickListener { appendToExpression("1") }
+            btn2.setOnClickListener { appendToExpression("2") }
+            btn3.setOnClickListener { appendToExpression("3") }
+            btn4.setOnClickListener { appendToExpression("4") }
+            btn5.setOnClickListener { appendToExpression("5") }
+            btn6.setOnClickListener { appendToExpression("6") }
+            btn7.setOnClickListener { appendToExpression("7") }
+            btn8.setOnClickListener { appendToExpression("8") }
+            btn9.setOnClickListener { appendToExpression("9") }
+        }
+
+        // Operator button clicks
+        view.btnPlus.setOnClickListener { appendToExpression("+") }
+
+        // Equal button click
+        view.btnEqual.setOnClickListener { calculate() }
+
+        // Clear button click
+        view.btnClear.setOnClickListener { clear() }
+    }
+
+    private fun appendToExpression(value: String) {
+        currentExpression += value
+        view.tvResult.text = currentExpression
+    }
+
+    private fun calculate() {
+        // Split the expression to extract the operator and the second number
+        val parts = currentExpression.split(Regex("[+]"))
+        if (parts.size == 2) {
+            val operator = currentExpression[parts[0].length].toString()
+            val firstNumber = parts[0].toIntOrNull() ?: 0
+            val secondNumber = parts[1].toIntOrNull() ?: 0
+
+            when (operator) {
+                "+" -> result = firstNumber + secondNumber
             }
-        }
-
-        view.btnPlus.setOnClickListener {
-            val text = view.tvResult.text.toString() + "+"
-            view.tvResult.text = text
-        }
-
-        view.btnEqual.setOnClickListener {
-            val text = view.tvResult.text.toString()
-            val result = text
-                .split("+")
-                .filter { it.isNotBlank() }
-                .sumOf { it.toInt() }
             view.tvResult.text = result.toString()
+            currentExpression = result.toString()
         }
+    }
 
-        view.btnClear.setOnClickListener {
-            view.tvResult.text = "0"
-        }
+    private fun clear() {
+        currentExpression = ""
+        result = 0
+        view.tvResult.text = "0"
     }
 }
