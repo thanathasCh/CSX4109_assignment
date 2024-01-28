@@ -2,10 +2,10 @@ package com.csx4109.assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
-import com.csx4109.assignment.Adapters.LinearLayout
-import com.csx4109.assignment.databinding.ActivityAssignment2Binding
-import com.csx4109.assignment.models.Game
+import com.csx4109.assignment.fragments.ListViewFragment
+
 
 /**
  * Page Name: Game List
@@ -42,14 +42,20 @@ import com.csx4109.assignment.models.Game
  *
  * ***You can check video example in MS team***
  */
+
 class Assignment2Activity : AppCompatActivity() {
-
-    private val viewBinding: ActivityAssignment2Binding by lazy { ActivityAssignment2Binding.inflate(layoutInflater)}
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(viewBinding.root)
+        setContentView(R.layout.activity_assignment2)
+        replaceFragment(ListViewFragment())
 
-        viewBinding.lvGameBoard.adapter = LinearLayout(this, LocalVariables.games)
+        Log.ERROR
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransction = fragmentManager.beginTransaction()
+        fragmentTransction.replace(R.id.itemGameBoard, fragment)
+        fragmentTransction.commit()
     }
 }
