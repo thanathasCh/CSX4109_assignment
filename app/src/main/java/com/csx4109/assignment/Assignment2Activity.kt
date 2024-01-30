@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.csx4109.assignment.fragments.ListViewFragment
+import com.csx4109.assignment.databinding.ActivityAssignment2Binding
+import com.csx4109.assignment.fragments.FragmentA
 
 
 /**
@@ -44,18 +45,28 @@ import com.csx4109.assignment.fragments.ListViewFragment
  */
 
 class Assignment2Activity : AppCompatActivity() {
+
+    private val viewBinding: ActivityAssignment2Binding by lazy {ActivityAssignment2Binding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment2)
-        replaceFragment(ListViewFragment())
+        setContentView(viewBinding.root)
 
-        Log.ERROR
+        viewBinding.btnNavigation.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.rvList -> replaceFragment(FragmentA())
+            else -> false
+            }
+        }
+
     }
 
-    private fun replaceFragment(fragment: Fragment){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransction = fragmentManager.beginTransaction()
-        fragmentTransction.replace(R.id.itemGameBoard, fragment)
-        fragmentTransction.commit()
+    private fun replaceFragment(fragment: Fragment): Boolean{
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fcGameList, fragment)
+            .addToBackStack(fragment::class.java.name)
+            .commit()
+
+        return true
     }
 }
